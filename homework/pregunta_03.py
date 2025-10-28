@@ -4,7 +4,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 `tbl2.tsv`. En este laboratorio solo puede utilizar las funciones y 
 librerias de pandas para resolver las preguntas.
 """
-
+import pandas as pd
 
 def pregunta_03():
     """
@@ -21,3 +21,12 @@ def pregunta_03():
     Name: count, dtype: int64
 
     """
+    df=cargar_datos()
+    # .size() cuenta cuantas filas por cada elemento de la columna c1
+    df_2=df.groupby("c1").size()
+    return df_2
+
+
+def cargar_datos():
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+    return df
